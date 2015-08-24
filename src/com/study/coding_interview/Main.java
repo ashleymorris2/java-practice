@@ -14,6 +14,8 @@ public class Main {
 
         System.out.println(test.isPermutation("abcdefgh", "habcedfh"));
 
+        System.out.println(test.urlIfy("Hello my name is barry"));
+
 
 
 

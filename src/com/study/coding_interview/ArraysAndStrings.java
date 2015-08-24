@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public class ArraysAndStrings {
 
-    boolean isUnique(String input) {
+    public boolean isUnique(String input) {
 
         HashMap<Character, Integer> countTable = new HashMap<>();
 
@@ -30,8 +30,7 @@ public class ArraysAndStrings {
         return true;
     }
 
-    boolean isPermutation
-            (String firstString, String secondString) {
+    public boolean isPermutation(String firstString, String secondString) {
         if (firstString.length() != secondString.length()) {
             return false;
         }
@@ -68,11 +67,56 @@ public class ArraysAndStrings {
             }
         }
 
+        //Similar to counting semaphores.
+        // If we are back to empty then the two words
+        // contain the same characters
         if (countTable.isEmpty()) {
             return true;
         }
 
         return false;
+    }
+
+    public String urlIfy(String inputString) {
+
+        int spaceCount = 0, newLength;
+        char[] charString = inputString.toCharArray();
+
+        for (char aCharString : charString) {
+            if (aCharString == ' ') {
+                //Count the number of spaces
+                spaceCount++;
+            }
+        }
+
+        //Make space for the additional characters in a new array.
+        newLength = inputString.length() + spaceCount * 2;
+
+        char[] newString = new char[newLength];
+
+        for (int i = charString.length -1; i >= 0; i--) {
+
+            //Working from the end to the beginning place %20 where spaces are found
+            //and the original character where no space is found.
+            if (charString[i] == ' ') {
+
+                newString[newLength-1] = '0';
+                newString[newLength - 2] = '2';
+                newString[newLength - 3] = '%';
+
+                newLength -= 3;
+            }
+            else {
+
+                newString[newLength - 1] = charString[i];
+                newLength--;
+            }
+
+        }
+
+        String returnString = new String(newString);
+        
+        return returnString;
     }
 
 
