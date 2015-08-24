@@ -114,9 +114,7 @@ public class ArraysAndStrings {
 
         }
 
-        String returnString = new String(newString);
-        
-        return returnString;
+        return new String(newString);
     }
 
 
