@@ -16,6 +16,11 @@ public class Main {
 
         System.out.println(test.urlIfy("Hello my name is barry"));
 
+        System.out.println(" ");
+
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        fizzBuzz.print();
+
 
 
 

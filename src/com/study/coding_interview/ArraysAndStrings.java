@@ -99,23 +99,22 @@ public class ArraysAndStrings {
             //Working from the end to the beginning place %20 where spaces are found
             //and the original character where no space is found.
             if (charString[i] == ' ') {
-
-                newString[newLength-1] = '0';
+                newString[newLength - 1] = '0';
                 newString[newLength - 2] = '2';
                 newString[newLength - 3] = '%';
 
                 newLength -= 3;
             }
             else {
-
                 newString[newLength - 1] = charString[i];
                 newLength--;
             }
-
         }
 
         return new String(newString);
     }
+
+
 
 
 }
