@@ -7,6 +7,12 @@ import java.util.HashMap;
  */
 public class ArraysAndStrings {
 
+    /**
+     * Checks if all the characters in a string are unique.
+     *
+     * @param input the string that is to be checked.
+     * @return true if the letters are unique, false if they are not.
+     */
     public boolean isUnique(String input) {
 
         HashMap<Character, Integer> countTable = new HashMap<>();
@@ -30,6 +36,12 @@ public class ArraysAndStrings {
         return true;
     }
 
+    /**Checks if two strings are permutations of each other
+     *
+     * @param firstString The first string to be compared
+     * @param secondString The second string to be compared
+     * @return True if the strings contain the same letters as each other false if not.
+     */
     public boolean isPermutation(String firstString, String secondString) {
         if (firstString.length() != secondString.length()) {
             return false;
@@ -41,6 +53,7 @@ public class ArraysAndStrings {
             int counter = 0;
 
             if (countTable.get(firstString.charAt(i)) != null) {
+                //The character is already in the hash map, get the stored value.
                 counter = countTable.get(firstString.charAt(i));
             }
 
@@ -51,7 +64,7 @@ public class ArraysAndStrings {
         for (int i = 0; i < secondString.length(); i++) {
 
             if (countTable.get(secondString.charAt(i)) == null) {
-                //This letter hasn't been found so they are not the same.
+                //This letter hasn't been found so they are not permutations
                 return false;
             }
 
@@ -112,6 +125,28 @@ public class ArraysAndStrings {
         }
 
         return new String(newString);
+    }
+
+    public String iterativeReverse(String input){
+
+        char [] string = new char [input.length()];
+        int index = 0;
+
+        for (int i = input.length() -1 ; i >= 0; i--) {
+            string[index] = input.charAt(i);
+            index++;
+        }
+
+        return new String(string);
+    }
+
+    public String recursiveReverse(String input){
+        if(input.length() <= 1){
+            //Base case down to string of length one
+            return input;
+        }
+
+        return recursiveReverse(input.substring(1)) + input.charAt(0);
     }
 
 
