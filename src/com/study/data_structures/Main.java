@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println(doublyLinkedList.makeSentence());
 
-       MyLinkedList linkedList = new MyLinkedList();
+        MyLinkedList linkedList = new MyLinkedList();
         linkedList.add("monkey");
         linkedList.add("chicken");
         linkedList.add("greek");

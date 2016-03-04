@@ -15,20 +15,25 @@ public class ArraysAndStrings {
      */
     public boolean isUnique(String input) {
 
+        //Use a hashmap to keep a count
         HashMap<Character, Integer> countTable = new HashMap<>();
 
+        //Check every letter of the input word.
         for (int i = 0; i < input.length(); i++) {
 
             int count = 0;
 
+            //Get the current count of the current word if it already exists in the hashmap.
             if (countTable.get(input.charAt(i)) != null) {
                 count = countTable.get(input.charAt(i));
             }
 
+            //If the count is zero, then increment it. It should now be 1.
             if (count == 0) {
                 count++;
                 countTable.put(input.charAt(i), count);
             } else {
+                //Else return false, because the current letter has already been found, meaning that it isn't unique.
                 return false;
             }
         }
@@ -81,13 +86,9 @@ public class ArraysAndStrings {
         }
 
         //Similar to counting semaphores.
-        // If we are back to empty then the two words
-        // contain the same characters
-        if (countTable.isEmpty()) {
-            return true;
-        }
-
-        return false;
+        //If we are back to empty then the two words
+        //contain the same characters
+        return countTable.isEmpty();
     }
 
     public String urlIfy(String inputString) {

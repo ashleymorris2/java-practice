@@ -23,8 +23,5 @@ public class Main {
         FizzBuzz fizzBuzz = new FizzBuzz();
         fizzBuzz.print();
 
-
-
-
     }
 }
